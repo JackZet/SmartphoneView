@@ -13,12 +13,14 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.JavascriptInterface;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 
 import com.example.srikate.ibeacondemo.R;
+import com.example.srikate.ibeacondemo.utils.JavaScriptInterface;
 
 /**
  * Created by srikate on 10/4/2017 AD.
@@ -62,15 +64,17 @@ public class WebViewTestFragment extends Fragment{
         View v = inflater.inflate(R.layout.web_view, container, false);
         webview = (WebView) v.findViewById(R.id.webview);
         webview.setWebViewClient(new WebViewClient());
+        webview.addJavascriptInterface(new JavaScriptInterface(getContext()), "Android");
 
         if (url != null){
             webview.loadUrl(url);
         } else {
-            webview.loadUrl("https://www.google.com");
+            webview.loadUrl("https://bach2020.azurewebsites.net/Home/Navigation?id=2");
         }
 
         WebSettings webSettings = webview.getSettings();
         webSettings.setJavaScriptEnabled(true);
+
 
         webview.setOnKeyListener(new View.OnKeyListener(){
 
