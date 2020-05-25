@@ -95,7 +95,7 @@ public class QRFragment extends Fragment {
 
             @Override
             public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i1, int i2) {
-
+                //cameraSource.stop();
             }
 
             @Override

@@ -13,9 +13,10 @@ import java.io.Console;
 
 public class JavaScriptInterface {
     Context mContext;
-    Vibrator vibrator = (Vibrator) mContext.getSystemService(Context.VIBRATOR_SERVICE);
+    Vibrator vibrator;
     public JavaScriptInterface(Context c){
             mContext = c;
+            vibrator = (Vibrator) c.getSystemService(Context.VIBRATOR_SERVICE);
     }
 
     @JavascriptInterface

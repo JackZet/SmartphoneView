@@ -19,6 +19,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 
+import com.example.srikate.ibeacondemo.MainActivity;
 import com.example.srikate.ibeacondemo.R;
 import com.example.srikate.ibeacondemo.utils.JavaScriptInterface;
 
@@ -64,7 +65,11 @@ public class WebViewTestFragment extends Fragment{
         View v = inflater.inflate(R.layout.web_view, container, false);
         webview = (WebView) v.findViewById(R.id.webview);
         webview.setWebViewClient(new WebViewClient());
-        webview.addJavascriptInterface(new JavaScriptInterface(getContext()), "Android");
+        Log.d("newtag", getContext().toString());
+
+        webview.addJavascriptInterface(new JavaScriptInterface(getActivity()), "Android");
+
+
 
         if (url != null){
             webview.loadUrl(url);
